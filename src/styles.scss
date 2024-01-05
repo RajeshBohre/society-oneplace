@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~primeicons/primeicons.css';
+@import "../node_modules/ag-grid-community/styles/ag-grid.css";
+@import "../node_modules/ag-grid-community/styles/ag-theme-alpine.css";
+
+.p-tabmenu .p-tabmenu-nav {
+    background: cadetblue;
+    border: 0 none;
+    border-width: 1px;
+}
+.p-inputtext {
+    max-width: 10em;
+}
+.p-multiselect {
+    min-width: 10em;
+}

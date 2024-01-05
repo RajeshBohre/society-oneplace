@@ -1,0 +1,143 @@
+<div >
+    <div class="flex flex-wrap gap-3 radio-cls">
+        <div class="flex align-items-center">
+            <p-radioButton name="pizza" value="Cheese" [(ngModel)]="ingredient" inputId="ingredient1"></p-radioButton>
+            <label for="ingredient1" class="ml-2">Expenses</label>
+        </div>
+        
+        <div class="flex align-items-center">
+            <p-radioButton name="pizza" value="Mushroom" [(ngModel)]="ingredient" inputId="ingredient2"></p-radioButton>
+            <label for="ingredient2" class="ml-2">Maintanence</label>
+        </div>
+        
+        
+    </div>
+    <div *ngIf="ingredient != 'Cheese'" class="row" style="text-align: center;">
+        <div class="col-md-6" style="text-align: end; margin-top: 5px;">
+            <label>Member Name : </label>
+        </div>
+        <div  class="col-md-6" style="text-align: start; margin-top: 5px">
+            <p-dropdown [options]="memberList"  placeholder="select"
+            selection="single"
+            [(ngModel)]="name" optionLabel="label" (onChange)="memberSelect($event)"></p-dropdown>
+            <!-- <input type="text" pInputText  [(ngModel)]="name"/>-->
+        </div> 
+        
+            <div class="col-md-6" style="text-align: end; margin-top: 5px">
+                <label>Flat No. : </label>
+            </div>
+            <div  class="col-md-6" style="text-align: start; margin-top: 5px">
+
+                <input type="text" pInputText  [(ngModel)]="flatNo"/>
+            </div> 
+            
+            <div class="col-md-6" style="text-align: end; margin-top: 5px">
+                <label>Amount : </label>
+            </div>
+            <div  class="col-md-6" style="text-align: start; margin-top: 5px">
+
+                <input type="text" pInputText  [(ngModel)]="amount"/>
+            </div> 
+            <div class="col-md-6" style="text-align: end; margin-top: 5px">
+                <label>Date : </label>
+            </div>
+            <div  class="col-md-6" style="text-align: start; margin-top: 5px">
+
+                <p-calendar inputId="calendar" [(ngModel)]="new_date"
+                [disabledDays]="[]" [showIcon]="true" name="date"
+                ></p-calendar>
+            </div> 
+            <div class="col-md-6" style="text-align: end; margin-top: 5px">
+                <label>Transaction Mode : </label>
+                
+            </div>
+            <div class="col-md-6" style="text-align: start; margin-top: 5px">
+                
+                <input type="text" pInputText  [(ngModel)]="mode"/>
+            </div>
+            <div class="col-md-6" style="text-align: end; margin-top: 5px">
+                <label>Transaction Id : </label>
+                
+            </div>
+            <div class="col-md-6" style="text-align: start; margin-top: 5px">
+                
+                <input type="text" pInputText  [(ngModel)]="transactionid"/>
+            </div>
+            <div class="col-md-6" style="text-align: end; margin-top: 5px">
+                <label>Transaction Evidence : </label>
+                
+            </div>
+            <div class="col-md-6" style="text-align: start; margin-top: 5px">
+                
+                <input type="file"  (change)="onBasicUpload($event)"/>
+            </div>
+            <div  class="col-md-6" style="text-align: end; margin-top: 5px">
+                <label>comment : </label>
+               
+            </div> 
+            <div  class="col-md-6" style="text-align: start; margin-top: 5px">
+                
+                <input type="text" pInputText  [(ngModel)]="comment"/>
+            </div>
+       
+
+    </div>
+    <div *ngIf="ingredient == 'Cheese'" class="row" style="text-align: center;">
+        <div class="col-md-6" style="text-align: end; margin-top: 5px;">
+            <label>Voucher No : </label>
+        </div>
+        <div  class="col-md-6" style="text-align: start; margin-top: 5px">
+            <input type="text" pInputText  [(ngModel)]="voucherNo"/>
+            <!-- <input type="text" pInputText  [(ngModel)]="name"/>-->
+        </div> 
+        
+            <div class="col-md-6" style="text-align: end; margin-top: 5px">
+                <label>amount : </label>
+            </div>
+            <div  class="col-md-6" style="text-align: start; margin-top: 5px">
+
+                <input type="text" pInputText  [(ngModel)]="expensesAmount"/>
+            </div> 
+            
+            <div class="col-md-6" style="text-align: end; margin-top: 5px">
+                <label>paid By : </label>
+            </div>
+            <div  class="col-md-6" style="text-align: start; margin-top: 5px">
+
+                <input type="text" pInputText  [(ngModel)]="paidBy"/>
+            </div> 
+            <div class="col-md-6" style="text-align: end; margin-top: 5px">
+                <label>paid To : </label>
+            </div>
+            <div  class="col-md-6" style="text-align: start; margin-top: 5px">
+
+                <input type="text" pInputText  [(ngModel)]="paidTo"/>
+            </div> 
+            <div class="col-md-6" style="text-align: end; margin-top: 5px">
+                <label>Date : </label>
+            </div>
+            <div  class="col-md-6" style="text-align: start; margin-top: 5px">
+
+                <p-calendar inputId="calendar" [(ngModel)]="new_date"
+                [disabledDays]="[]" [showIcon]="true" name="date"
+                ></p-calendar>
+            </div> 
+            <div class="col-md-6" style="text-align: end; margin-top: 5px">
+                <label>comment : </label>
+            </div>
+            <div  class="col-md-6" style="text-align: start; margin-top: 5px">
+
+                <input type="text" pInputText  [(ngModel)]="comment"/>
+            </div> 
+
+    </div>
+</div>
+<div *ngIf="ingredient != 'Cheese'" style="text-align: center;">
+    <button class="btn btn-primary" (click)="submitForm('maintanence')" style="margin: 5px" type="submit">Submit</button>
+    <button class="btn btn-primary" type="submit">Cancel</button>
+</div>
+<div *ngIf="ingredient == 'Cheese'" style="text-align: center;">
+    <button class="btn btn-primary" (click)="submitForm('expenses')" style="margin: 5px" type="submit">Submit</button>
+    <button class="btn btn-primary" type="submit">Cancel</button>
+</div>
+
